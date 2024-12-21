@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>World Countries Information</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="index.js" defer></script>
+</head>
+<body class="bg-gray-100">
+    <div class="container mx-auto px-4 py-8">
+        <h1 class="text-4xl font-bold text-center mb-8">World Countries Information</h1>
+        
+        <div class="mb-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
+            <input type="text" id="nameFilter" placeholder="Filter by name" class="p-2 border rounded">
+            <input type="text" id="capitalFilter" placeholder="Filter by capital" class="p-2 border rounded">
+            <select id="regionFilter" class="p-2 border rounded">
+                <option value="">Filter by region</option>
+                <option value="Africa">Africa</option>
+                <option value="Americas">Americas</option>
+                <option value="Asia">Asia</option>
+                <option value="Europe">Europe</option>
+                <option value="Oceania">Oceania</option>
+            </select>
+            <input type="text" id="languageFilter" placeholder="Filter by language" class="p-2 border rounded">
+            <input type="text" id="timezoneFilter" placeholder="Filter by timezone" class="p-2 border rounded">
+        </div>
+        
+        <div id="countriesContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            <!-- Country cards will be inserted here -->
+        </div>
+    </div>
+
+</body>
+</html>
