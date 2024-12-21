@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Euro Currency Converter</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="./app.js" defer></script>
+</head>
+
+
+<body class="bg-gray-100 min-h-screen flex items-center justify-center">
+    <div class="bg-white p-6 rounded-lg shadow-lg w-96 shadow-slate-950">
+        <h1 class="text-2xl font-bold text-gray-800 mb-4 text-center text-teal-500">Euro Currency Converter</h1>
+        <form id="currency-form" class="space-y-4">
+            <div>
+                <label for="amount" class="block text-sm font-medium text-gray-700 text-teal-500">Amount in Euro</label>
+                <input type="number" id="amount" name="amount" step="0.01" required
+                    class="w-full mt-1 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 shadow-sky-500">
+            </div>
+            <div>
+                <label for="currency" class="block text-sm font-medium text-gray-700 text-teal-500">Select
+                    Currency</label>
+                <select id="currency" name="currency" required
+                    class="w-full mt-1 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 text-teal-500 shadow-sky-500">
+                    <option value="" disabled selected>Select currency</option>
+                </select>
+            </div>
+            <button type="submit"
+                class="w-full bg-indigo-600 text-white py-2 px-4 rounded-md hover:bg-indigo-700">Convert</button>
+        </form>
+        <div id="result" class="mt-4 text-center text-lg font-semibold text-gray-700"></div>
+    </div>
+
+
+</body>
+
+</html>
