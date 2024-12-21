@@ -5,10 +5,104 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="/global.css" />
-    <link rel="stylesheet" href="shokhruzbek.css">
+    <link rel="stylesheet" href="shokhruzbek.css" />
     <script src="shokhruzbek.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   </head>
-  <body>
-    
-  </body>
+  <body></body>
+</head>
+<body>
+  <style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f7f7f7;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+
+    .container {
+        background-color: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        width: 300px;
+        text-align: center;
+    }
+
+    input[type="text"] {
+        padding: 10px;
+        width: 80%;
+        margin-bottom: 20px;
+        border: 2px solid #ddd;
+        border-radius: 5px;
+        font-size: 16px;
+        transition: border 0.3s;
+    }
+
+    input[type="text"]:focus {
+        border-color: #3498db;
+        outline: none;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        background-color: #3498db;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .btn:hover {
+        background-color: #2980b9;
+    }
+
+    .result {
+        margin-top: 20px;
+        /* display: none; */
+        background-color: #f1f1f1;
+        padding: 15px;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .result p {
+        margin: 5px 0;
+    }
+
+    .result p strong {
+        color: #3498db;
+    }
+
+    .loading {
+        display: none;
+        font-size: 16px;
+        color: #3498db;
+    }
+</style>
+</head>
+<body>
+ 
+  <form>
+    <input type="text" id="input-city">
+    <button onclick="showIp()">Search</button>
+  </form>
+<div class="container">
+  
+    <!-- <h2>Check IP Location</h2>
+    <div class="result" id="result">
+        <p><strong>Country:</strong> <span id="countryName"></span></p>
+        <p><strong>Capital:</strong> <span id="capital"></span></p>
+        <p><strong>Phone Code:</strong> <span id="phoneCode"></span></p>
+        <p><strong>Official Name:</strong> <span id="officialCountryName"></span></p>
+        <p><strong>Borders:</strong> <span id="borders"></span></p>
+    </div> -->
+</div>
+
+</body>
 </html>
