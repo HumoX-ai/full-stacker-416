@@ -38,7 +38,15 @@ body {
     margin-top: 40px;
 }
 
-#anser {
+#answer {
     display: hidden;
     font-style: italic;
+    font-size: 30px;
+    color: green;
+}
+
+#joke {
+    font-size: 45px;
+    font-weight: bold;
+    margin-top: 20px;
 }
