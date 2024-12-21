@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Car Management</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f9f9f9;
+        margin: 0;
+        padding: 0;
+      }
+      .container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      .car {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: 20px;
+        padding: 10px;
+        background-color: #f1f1f1;
+        border-radius: 5px;
+      }
+      .car span {
+        margin-bottom: 10px;
+      }
+      .car button {
+        align-self: flex-end;
+        background-color: #ff4d4d;
+        border: none;
+        color: white;
+        padding: 5px 10px;
+        cursor: pointer;
+        border-radius: 5px;
+      }
+      .car button:hover {
+        background-color: #ff1a1a;
+      }
+      .add-car-form {
+        display: flex;
+        flex-direction: column;
+        margin-top: 20px;
+      }
+      .add-car-form input {
+        margin-bottom: 10px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+      .add-car-form button {
+        background-color: #4caf50;
+        border: none;
+        color: white;
+        padding: 10px;
+        cursor: pointer;
+        border-radius: 5px;
+      }
+      .add-car-form button:hover {
+        background-color: #45a049;
+      }
+      .link {
+        display: block;
+        margin-top: 20px;
+        text-align: center;
+        color: #4caf50;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Car Management</h1>
+      <div id="carList"></div>
+      <div class="add-car-form">
+        <input type="text" id="brand" placeholder="Brand" required />
+        <input type="text" id="model" placeholder="Model" required />
+        <input type="number" id="price" placeholder="Price" required />
+        <button onclick="addCar()">Add Car</button>
+      </div>
+      <a href="index.html" class="link">Back to Car List</a>
+    </div>
+
+    <script>
+      const apiUrl = "https://6765c25c410f84999656159d.mockapi.io/cars";
+
+      async function fetchCars() {
+        const response = await fetch(apiUrl);
+        const cars = await response.json();
+        displayCars(cars);
+      }
+
+      function displayCars(cars) {
+        const carList = document.getElementById("carList");
+        carList.innerHTML = "";
+        cars.forEach((car) => {
+          const carDiv = document.createElement("div");
+          carDiv.className = "car";
+          carDiv.innerHTML = `
+                    <span>${car.brand} ${car.model} - $${car.price}</span>
+                    <button onclick="deleteCar(${car.id})">Delete</button>
+                `;
+          carList.appendChild(carDiv);
+        });
+      }
+
+      async function deleteCar(id) {
+        await fetch(`${apiUrl}/${id}`, {
+          method: "DELETE",
+        });
+        fetchCars();
+      }
+
+      async function addCar() {
+        const brand = document.getElementById("brand").value;
+        const model = document.getElementById("model").value;
+        const price = document.getElementById("price").value;
+
+        await fetch(apiUrl, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ brand, model, price }),
+        });
+
+        fetchCars();
+      }
+
+      fetchCars();
+    </script>
+  </body>
+</html>
