@@ -35,3 +35,9 @@ function displayCars(cars) {
         `;
     });
 }
+
+function searchCars() {
+    const sth = searchInput.value.toLowerCase(); 
+    const filteredCars = cars.filter((car) => car.Mfr_CommonName?.toLowerCase().includes(sth));
+    displayCars(filteredCars);
+}
