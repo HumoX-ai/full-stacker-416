@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Racing Game</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="/global.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="index.js" defer></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Racing Game</h1>
+      <div class="track-container">
+        <div class="track">
+          <img
+            src="https://www.freeiconspng.com/thumbs/rocket-png/rocket-icon-png-21.png"
+            alt="Rocket 1"
+            class="racer"
+            id="racer1"
+          />
+          <div class="lane-divider"></div>
+        </div>
+        <div class="track">
+          <img
+            src="https://www.freeiconspng.com/thumbs/rocket-png/rocket-icon-png-21.png"
+            alt="Rocket 2"
+            class="racer"
+            id="racer2"
+          />
+          <div class="lane-divider"></div>
+        </div>
+      </div>
+      <button id="startBtn" class="start-btn">Start Race!</button>
+      <button id="resetBtn" class="start-btn hidden">Return</button>
+      <div id="timer" class="timer-display"></div>
+    </div>
+  </body>
+</html>
