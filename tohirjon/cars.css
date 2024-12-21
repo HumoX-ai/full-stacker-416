@@ -1,0 +1,213 @@
+/* إعادة تعيين الأنماط الأساسية */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* أنماط الـ Body */
+body {
+  font-family: "Roboto", sans-serif;
+  padding: 20px;
+}
+
+/* حاوية الكروت */
+.card-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* أنماط الكارت */
+.car-card {
+  background-color: #fff;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  width: 320px; /* زيادة عرض الكارت لتوفير مساحة أكبر */
+  display: flex;
+  flex-direction: column;
+  margin: 1rem 1rem 1rem 1rem;
+}
+
+.car-card:hover {
+  transform: translateY(-10px);
+}
+
+/* رأس الكارت */
+.card-header {
+  padding: 15px;
+  background-color: #007bff;
+  color: #fff;
+  text-align: center;
+  position: relative;
+}
+
+.car-title {
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* دائرة اللوجو */
+.logo-circle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  border-radius: 30%;
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+.brand-logo {
+  width: 24px;
+  height: 24px;
+}
+
+/* صورة الكارت */
+.card-image {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* نسبة عرض إلى ارتفاع 16:9 */
+  overflow: hidden;
+}
+
+.card-image img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* الخط الفاصل */
+.divider {
+  width: 90%;
+  height: 2px;
+  margin: 10px auto;
+  background-color: #007bff; /* نفس لون الزر */
+  border-radius: 1px;
+}
+
+/* جسم الكارت */
+.card-body {
+  padding: 15px;
+  flex: 1;
+  /* display: flex; */
+  /* flex-direction: column; */
+}
+
+.card-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90px;
+}
+
+.newyear {
+  padding: 15px;
+  display: flex;
+  text-align: center;
+  display: flex;
+}
+
+/* تعديل حجم ومحاذاة السنة */
+.year {
+  font-size: 22px;
+  color: #007bff;
+  margin-bottom: 10px;
+  text-align: center;
+  display: flex;
+  font-weight: bold; 
+}
+
+/* تفاصيل السيارة */
+.details {
+  list-style: none;
+  margin-bottom: 15px;
+  flex: 1;
+}
+
+.details li {
+  font-size: 0.9rem;
+  margin-bottom: 5px;
+  display: flex;
+  align-items: center;
+  /* إزالة white-space: nowrap للسماح بتفاف النص */
+  justify-content: space-between;
+}
+
+.detail-label {
+  color: #555;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  /* ضبط min-width للسماح للتسمية بالتقلص إذا لزم الأمر */
+  min-width: auto;
+}
+
+.detail-icon {
+  width: 16px;
+  height: 16px;
+  margin-right: 5px;
+}
+
+.detail-value {
+  color: #333;
+  text-align: right;
+}
+
+.price-number {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #007bff;
+}
+
+/* مجموعة الأزرار */
+.button-group {
+  display: flex;
+  gap: 10px;
+  margin-top: auto;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  padding: 12px 5px; /* زيادة الحشو لضمان ظهور النص */
+  border-radius: 0.8rem;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+  color: #fff;
+}
+
+.btn-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+}
+
+/* زر "Ask About Car" */
+.btn-ask {
+  background-color: #007bff; /* لون أزرق */
+}
+
+.btn-ask:hover {
+  background-color: #0056b3;
+}
+
+/* زر "Request Car" */
+.btn-request {
+  background-color: #007bff; /* لون أزرق */
+}
+
+.btn-request:hover {
+  background-color: #0056b3;
+}
