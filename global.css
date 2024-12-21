@@ -1,3 +1,17 @@
 body {
   font-family: "Montserrat", sans-serif;
 }
+
+#result p {
+  margin: 0.5rem 0;
+  color: #4A5568; 
+}
+
+input[type="text"], input[type="date"] {
+  transition: border-color 0.3s;
+}
+
+input:focus {
+  border-color: #63B3ED; 
+}
+
