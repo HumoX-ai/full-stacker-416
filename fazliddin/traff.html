@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Svetofor</title>
+  <style>
+    body {
+      gap: 200px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f0f0f0;
+    }
+
+    .traffic-light {
+      width: 100px;
+      height: 300px;
+      background-color: #333;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      padding: 15px;
+    }
+
+    .light {
+      width: 70px;
+      height: 70px;
+      background-color: #555;
+      border-radius: 50%;
+      transition: background-color 0.3s;
+    }
+
+    .red {
+      background-color: red;
+    }
+
+    .yellow {
+      background-color: yellow;
+    }
+
+    .green {
+      background-color: green;
+    }
+
+    .op {
+      display: block;
+      padding: 10px 20px;
+      border-radius: 10px;
+      border: 1px solid #000;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .op:hover {
+      box-shadow: 3px 3px black;
+      transition: 2000ms;
+
+    }
+  </style>
+</head>
+
+<body>
+  <div class="traffic-light">
+    <div class="light" id="red-light"></div>
+    <div class="light" id="yellow-light"></div>
+    <div class="light" id="green-light"></div>
+  </div>
+
+
+
+  <button class="op"><a href="../index.html">теперь помотрим на других</a></button>
+  <script>
+    const redLight = document.getElementById('red-light');
+    const yellowLight = document.getElementById('yellow-light');
+    const greenLight = document.getElementById('green-light');
+
+    function clearLights() {
+      redLight.classList.remove('red');
+      yellowLight.classList.remove('yellow');
+      greenLight.classList.remove('green');
+    }
+
+    function trafficLight() {
+      let currentStep = 0;
+      setInterval(() => {
+        clearLights();
+        if (currentStep === 0) {
+          redLight.classList.add('red');
+        } else if (currentStep === 1) {
+          yellowLight.classList.add('yellow');
+        } else if (currentStep === 2) {
+          greenLight.classList.add('green');
+        } else if (currentStep === 3) {
+          yellowLight.classList.add('yellow');
+        }
+        currentStep = (currentStep + 1) % 4;
+      }, currentStep === 1 || currentStep === 3 ? 1000 : 5000); // 1 soniya sariq, 5 soniya qizil va yashil
+    }
+
+    trafficLight();
+  </script>
+</body>
+
+</html>
