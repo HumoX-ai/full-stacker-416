@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HUMOYUN</title>
+    <link rel="stylesheet" href="/global.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <div class="text-center mb-8">
+      <h1 id="score" class="text-2xl font-bold text-gray-800">Ochko: 0</h1>
+      <h1 id="time" class="text-2xl font-bold text-gray-800">Vaqt: 10</h1>
+    </div>
+    <button
+      id="movingBtn"
+      class="absolute bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300"
+    >
+      Qo'linda kelsa bos😂
+    </button>
+    <div
+      id="result-modal"
+      class="hidden fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center"
+    >
+      <div
+        class="bg-white p-8 rounded-lg shadow-2xl text-center transform transition-transform duration-300 scale-95 hover:scale-100"
+      >
+        <h2 class="text-4xl font-extrabold mb-6 text-gray-900">
+          O'yin tugadi!
+        </h2>
+        <p id="result" class="text-lg mb-6 text-gray-700"></p>
+        <hr class="my-6" />
+        <p id="result-message" class="pb-6"></p>
+        <button
+          id="close-modal"
+          class="bg-blue-600 hover:bg-blue-800 text-white font-bold py-3 px-6 rounded-full transition duration-300 transform hover:scale-110"
+        >
+          Qayta boshlash
+        </button>
+      </div>
+    </div>
+
+    <script>
+      let score = 0;
+      let time = 10;
+      let timerInterval;
+      const scoreElement = document.querySelector("#score");
+      const timeElement = document.querySelector("#time");
+      const btn = document.getElementById("movingBtn");
+      const resultModal = document.getElementById("result-modal");
+      const result = document.getElementById("result");
+      const resultMessage = document.getElementById("result-message");
+      const closeModal = document.getElementById("close-modal");
+
+      btn.addEventListener("click", () => {
+        score++;
+        scoreElement.textContent = "Ochko: " + score;
+      });
+
+      function startTimer() {
+        timerInterval = setInterval(() => {
+          time--;
+          timeElement.textContent = "Vaqt: " + time;
+          if (time === 0) {
+            clearInterval(timerInterval);
+            result.textContent = "Sizning ochkoyingiz: " + score;
+            if (score > 2) {
+              resultMessage.textContent = "Yomon emas! Ko'proq PUBG o'ynang!";
+            } else if (score > 5) {
+              resultMessage.textContent = "Ajoyib! Siz super o'yinchisiz!";
+            } else if (score == 0) {
+              resultMessage.textContent =
+                "Siz o'ynashni bilmaysizmi? 😂 Reaksiyangiz 0 ekan";
+            } else {
+              resultMessage.textContent = "Sizda yaxshi imkoniyat bor!";
+            }
+            btn.style.display = "none";
+            resultModal.classList.remove("hidden");
+          }
+        }, 1000);
+      }
+
+      setInterval(() => {
+        btn.style.left = Math.random() * (window.innerWidth - 80) + "px";
+        btn.style.top = Math.random() * (window.innerHeight - 30) + "px";
+      }, 700);
+
+      closeModal.addEventListener("click", () => {
+        resultModal.classList.add("hidden");
+        btn.style.display = "block";
+        score = 0;
+        time = 10;
+        scoreElement.textContent = "Ochko: " + score;
+        timeElement.textContent = "Vaqt: " + time;
+        startTimer();
+      });
+
+      startTimer();
+    </script>
+  </body>
+</html>
